@@ -25,7 +25,7 @@ namespace SCAME.Services
             var client = new SendGridClient(apiKey);
             var msg = new SendGridMessage()
             {
-                From = new EmailAddress("correosprueba74@gmail.com", Options.SendGridUser),
+                From = new EmailAddress("ymp.perez@yavirac.edu.ec", Options.SendGridUser),
                 Subject = subject,
                 PlainTextContent = message,
                 HtmlContent = message
