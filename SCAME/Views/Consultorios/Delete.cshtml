@@ -1,0 +1,88 @@
+﻿@model SCAME.Models.Consultorio
+
+@{
+    ViewData["Title"] = "Eliminar";
+}
+
+    <div class="col-md-12">
+        <h1 class="h1 text-strong text-center padding">Eliminar <small>Consultorio</small></h1>
+        <h3>¿Éstas seguro de eliminar? no se podrá recuperar la Información</h3>
+        <hr />
+        <div>
+            <div class="form-row">
+                <div class="col-md-1 mb-2">
+                    <p class="form-group">Imagen</p>
+                    <img src="@("/image/" + Model.ImageName)" asp-append-version="true" width="100px" height="100px" />
+                </div>
+                <div class="col-md-3 mb-2">
+                    <p class="form-group">@Html.DisplayNameFor(model => model.UserId)</p>
+                    <label class="form-group">@Html.DisplayFor(model => model.UserId)</label>
+                </div>
+                <div class="col-md-3 mb-2">
+                    <p class="form-group">@Html.DisplayNameFor(model => model.Ruc)</p>
+                    <label class="form-group"> @Html.DisplayFor(model => model.Ruc)</label>
+                </div>
+                <div class="col-md-3 mb-2">
+                    <p class="form-group">Nombre del Consultorio</p>
+                    <label class="form-group"> @Html.DisplayFor(model => model.NombreConsultorio)</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-1 mb-2"></div>
+                <div class="col-md-3 mb-2">
+                    <p class="form-group">Cédula del Representante Legal</p>
+                    <label class="form-group">@Html.DisplayFor(model => model.CedulaRepresentanteLegal)</label>
+                </div>
+                <div class="col-md-3 mb-2">
+                    <p class="form-group">Nombre del Representate Legal</p>
+                    <label class="form-group">
+                        @Html.DisplayFor(model => model.NombreRepresentateLegal)
+                        @Html.DisplayFor(model => model.ApellidoRepresentanteLegal)
+                    </label>
+                </div>
+                <div class="col-md-3 mb-2">
+                    <p class="form-group">@Html.DisplayNameFor(model => model.User.PhoneNumber)</p>
+                    <label class="form-group"> @Html.DisplayFor(model => model.User.PhoneNumber)</label>
+                </div>
+
+            </div>
+            <div class="form-row">
+                <div class="col-md-1 mb-2"></div>
+                <div class="col-md-3 mb-2">
+                    <p class="form-group">@Html.DisplayNameFor(model => model.User.Email)</p>
+                    <label class="form-group">@Html.DisplayFor(model => model.User.Email)</label>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <p class="form-group"> Dirección</p>
+                    <label class="form-group">@Html.DisplayFor(model => model.Direccion)</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-1 mb-2"></div>
+                <div class="col-md-5 mb-2">
+                    <p class="form-group">Patente Municipal</p>
+                    <label class="form-group">@Html.DisplayFor(model => model.NumPatenteMunicipal)</label>
+                </div>
+                <div class="col-md-5 mb-2">
+                    <p class="form-group">Permiso de Funcionamiento otorgado por el MSP</p>
+                    <label class="form-group">@Html.DisplayFor(model => model.PermisoFuncionamientoMsp))</label>
+                </div>
+            </div>
+            <div class="form-row ">
+                <div class="form-group col-md-1 mb-3"></div>
+                <div class="form-group col-md-2 mb-3">
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="IdConsultorio" />
+                        <input type="submit" value="Eliminar" class="btn btn-danger" />
+                    </form>
+                </div>
+                <div class="form-group col-md-6 mb-3"> </div>
+                <div class="form-group col-md-2 mb-3">
+                    <a class="nav-link" asp-action="Index">Regresar</a>
+                </div>
+            </div>
+            <br />
+            <br />
+
+        </div>
+    </div>

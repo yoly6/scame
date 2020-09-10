@@ -1,15 +1,12 @@
-﻿@page
+﻿
+@page
 @model RegisterModel
 @{
     ViewData["Title"] = "Registro";
 }
 
-
-
-
-
-
-    <br />
+<br />
+<br />
 <br />
 <section id="registrarse" class="mb-5">
     <div class="container">
@@ -19,9 +16,9 @@
                     <div class="card">
                         <div class="card-body text-center">
                             <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
-                                <h5 class="mt-5">Registrarse</h5>
-                                <hr />
-                                <h4 class="h3 mb-3 font-weigh-normal">Crea una cuenta nueva</h4>
+                                <br />
+                                <i class="icon-user_male text-size-30 text-dark"></i>
+                                <h4 class="h3 mt-3 font-weigh-normal">Crea una cuenta nueva</h4>
                                 <hr />
                                 <div asp-validation-summary="All" class="text-danger"></div>
                                 <div class="form-group">
@@ -35,59 +32,52 @@
                                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label asp-for="Input.ConfirmPassword" class="icon-facebook_circle" ></label>
+                                    <label asp-for="Input.ConfirmPassword"></label>
                                     <input asp-for="Input.ConfirmPassword" class="form-control" />
                                     <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                                 </div>
-                                <button type="submit" class="btn btn-primary" >Register</button>
-                                   <br />
-                                   <br />
-                                <div>
-                                    <p>
-                                        Tambien puedes registrate con:
-                                    </p>
-                                </div>
-                                <div class="background-light padding text-center">
-                                    <a href="/"><i class="icon-facebook_circle text-size-40 text-dark"></i></a>
-                                    <a href="/"><i class="icon-google_plus_circle text-size-40 text-dark"></i></a>
-
-                                </div>
+                                <button type="submit" class="btn btn-primary">Registrarse</button>   
                             </form>
                         </div>
-                        
-                        
-
-                    </div>
-                </div>
-            </div>
-       </div>
-   </div>
-    </section>
-                            <section>
-                               <h4></h4>
-                                <hr />
+                        <div class="h5 text-padding-small section-top-small-padding text-center">
+                            <div>
+                                <p>
+                                    Tambien puedes registrate con:
+                                </p>
+                            </div>
                                 @{
                                     if ((Model.ExternalLogins?.Count ?? 0) == 0)
                                     {
-                                        
+                                        <div>
+                                            <p>
+                                                Fuera de Servicio
+                                            </p>
+                                        </div>
                                     }
                                     else
                                     {
-                                        <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                                        <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal ">
                                             <div>
                                                 <p>
                                                     @foreach (var provider in Model.ExternalLogins)
                                                     {
-                                                        <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                                        <button type="submit" class="btn btn-primary " name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
                                                     }
                                                 </p>
                                             </div>
                                         </form>
                                     }
                                 }
-                            </section>
-                    
-
-                    @section Scripts {
-                        <partial name="_ValidationScriptsPartial" />
-                    }
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br />
+<br />
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

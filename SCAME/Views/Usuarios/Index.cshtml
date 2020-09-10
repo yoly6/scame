@@ -1,0 +1,63 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@model IEnumerable<IdentityUser>
+
+@{
+    ViewData["Title"] = "Usuarios No Verificádos";
+}
+<div class="col-md-12 padding ">
+    <h1 class="h1 text-center text-strong ">Administrador de Usuarios</h1>
+    <br />
+    <table class="table table-responsive-sm table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmailConfirmed)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </th>
+                <th>
+                    Acciones
+                </th>
+                <th>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmailConfirmed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    <form asp-action="Details" asp-route-id="@item.Id">
+                            <input type="submit" value="Detalles" class="btn btn-info text-white"/>
+                        </form>
+                        </td>
+                    <td>
+                          
+                            <form asp-action="Delete" asp-route-id="@item.Id">
+                            <input type="submit" value="Eliminar" class="btn btn-danger text-white" style="margin-left:10px"/>
+                        </form>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

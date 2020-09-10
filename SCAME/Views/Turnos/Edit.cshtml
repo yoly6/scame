@@ -1,0 +1,61 @@
+﻿@model SCAME.Models.Turno
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<br>
+<div class="container">
+  <div class="abs-center">
+       <h2>Editar Turno</h2>
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <h4>
+            <div class="form-row col-md-12">
+            <div class="form-group col-md-6">
+                <label asp-for="NombreTurno" class="control-label"></label>
+                <input asp-for="NombreTurno" class="form-control" />
+                <span asp-validation-for="NombreTurno" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="DiasTurno" class="control-label"></label>
+                <input asp-for="DiasTurno" class="form-control" />
+                <span asp-validation-for="DiasTurno" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="HoraInicio" class="control-label"></label>
+                <input asp-for="HoraInicio" class="form-control" />
+                <span asp-validation-for="HoraInicio" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="HoraSalida" class="control-label"></label>
+                <input asp-for="HoraSalida" class="form-control" />
+                <span asp-validation-for="HoraSalida" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check col-md-6">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Estado" /> @Html.DisplayNameFor(model => model.Estado)
+                </label>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="ConsultorioId" class="control-label"></label>
+                <select asp-for="ConsultorioId" class="form-control" asp-items="ViewBag.ConsultorioId"></select>
+                <span asp-validation-for="ConsultorioId" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+            <div class="form-group col-md-6">
+          <a asp-action="Index" class="btn btn-primary">Regresar</a>
+        </div>
+        </h4>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

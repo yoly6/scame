@@ -1,0 +1,35 @@
+﻿@model SCAME.Models.Especialidad
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<br/>
+<br/>
+<section id="hero" class="d-flex align-items-center">
+    <div class="container">
+      <h1>Editar Especialidad</h1>
+<hr/>
+<h4>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="NombreEspecialidad" class="control-label"></label>
+                <input asp-for="NombreEspecialidad" class="form-control" />
+                <span asp-validation-for="NombreEspecialidad" class="text-danger"></span>
+            </div>
+                <input type="submit" value="Save" class="btn-get-started scrollto" />
+                <a asp-action="Index" class="btn-get-started scrollto">Regresar</a>
+        </form>
+    </div>
+</div>
+</div>
+</h4>
+ </div>
+  </section>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.Extensions.Options;
+using SCAME.Services;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using System.Threading.Tasks;
@@ -25,7 +26,7 @@ namespace SCAME.Services
             var client = new SendGridClient(apiKey);
             var msg = new SendGridMessage()
             {
-                From = new EmailAddress("ymp.perez@yavirac.edu.ec", Options.SendGridUser),
+                From = new EmailAddress("ricky081297@hotmail.com", Options.SendGridUser),
                 Subject = subject,
                 PlainTextContent = message,
                 HtmlContent = message
@@ -34,7 +35,7 @@ namespace SCAME.Services
 
             // Disable click tracking.
             // See https://sendgrid.com/docs/User_Guide/Settings/tracking.html
-            msg.SetClickTracking(true, true);
+            msg.SetClickTracking(false, false);
 
             return client.SendEmailAsync(msg);
         }

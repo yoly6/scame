@@ -29,23 +29,24 @@ namespace SCAME
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-            //services.AddAuthentication()
-            //    .AddGoogle(options => {
-            //        options.ClientId = Configuration["App:GoogleClientId"];
-            //        options.ClientSecret = Configuration["App:GoogleClientSecret"];
-            //    })
-            //    .AddFacebook(options =>
-            //    {
-            //        options.ClientId = Configuration["App:FacebookClientId"];
-            //        options.ClientSecret = Configuration["App:FacebookClientSecret"];
-            //    });
+          /*  services.AddAuthentication()
+                .AddGoogle(options =>
+                {
+                    options.ClientId = Configuration["App:GoogleClientId"];
+                    options.ClientSecret = Configuration["App:GoogleClientSecret"];
+                })
+                .AddFacebook(options =>
+                {
+                    options.ClientId = Configuration["App:FacebookClientId"];
+                    options.ClientSecret = Configuration["App:FacebookClientSecret"];
+                });
 
             services.AddTransient<IEmailSender, EmailSender>();
             services.Configure<AuthMessageSenderOptions>(Configuration);
-
+          */
             services.AddControllersWithViews();
             services.AddRazorPages();
-           // services.AddMvc();
+            services.AddMvc();
 
         }
 

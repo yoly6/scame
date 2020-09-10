@@ -1,0 +1,51 @@
+﻿@model SCAME.Models.HorasAtencion
+
+@{
+    ViewData["Title"] = "Details";
+}
+<br/>
+<br/>
+<br/>
+<section id="hero" class="d-flex align-items-center">
+    <div class="container">
+      <h1>Detalle Horas de Atencion</h1>
+      <h2>
+     <br/>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.HoraInicio)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.HoraInicio)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.HoraCierre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.HoraCierre)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Disponibilidad)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Disponibilidad)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TurnoId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TurnoId)
+        </dd>
+    </dl>
+    <a asp-action="Edit" asp-route-id="@Model.IdHorasAtencion" class="btn-get-started scrollto">Editar</a> 
+    <a asp-action="Index" class="btn-get-started scrollto">Regresar</a>
+</div>
+</h2>
+ </div>
+  </section>

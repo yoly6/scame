@@ -1,0 +1,114 @@
+﻿@model IEnumerable<SCAME.Models.Consultorio>
+
+@{
+    ViewData["Title"] = "Consultorios";
+}
+  
+    <div class="col-md-12 padding">
+        <h1 class="h1 text-center text-strong ">Administrador de Consultorios</h1>
+        <br />
+        <div class="col-md-8">
+            <table class="table table-responsive-sm table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>
+                            Id Usuario
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ImageName)
+                        </th>
+                        <th scope="col">
+                            @Html.DisplayNameFor(model => model.Ruc)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NombreConsultorio)
+
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CedulaRepresentanteLegal)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NombreRepresentateLegal)
+                        </th>
+                        <th>
+                            Ciudad
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Direccion)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NumPatenteMunicipal)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PermisoFuncionamientoMsp)
+                        </th>
+                        <th>
+                            Correo
+                        </th>
+                        <th>
+                            Telefono
+                        </th>
+                        <th>
+                            Acciones
+                        </th>
+                        <th>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserId)
+                        </td>
+                        <td>
+                            <img src="@("/Image/" + item.ImageName)" asp-append-version="true" width="100px" height="100px" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Ruc)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NombreConsultorio)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CedulaRepresentanteLegal)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NombreRepresentateLegal)
+                            @Html.DisplayFor(modelItem => item.ApellidoRepresentanteLegal)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Canton.NombreCanton)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Direccion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NumPatenteMunicipal)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PermisoFuncionamientoMsp)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.User.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.User.PhoneNumber)
+                        </td>
+                        <td>
+                            <form asp-action="Details" asp-route-id="@item.IdConsultorio">
+                            <input type="submit" value="Detalles"  class="btn btn-info text-white" />
+                        </form> 
+                        </td>
+                        <td>
+                            <form asp-action="Delete" method="post" asp-route-id="@item.IdConsultorio">
+                            <input type="submit" value="Eliminar" class="btn btn-danger text-white"/>
+                        </form>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>

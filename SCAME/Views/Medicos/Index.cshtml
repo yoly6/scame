@@ -1,0 +1,85 @@
+﻿@model IEnumerable<SCAME.Models.Medico>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="col-md-12 mb-5">
+
+    <h1 class="h1 text-center text-strong padding">Nómina de Medicos</h1>
+
+    <a asp-action="Create" class="btn btn-secondary text-white col-md-1 mb-2">Ingresar nuevo medico</a>
+
+    <table class="table table-responsive-sm table-hover ">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cedula)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Apellido)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Telefono)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CodigoSenecyt)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TituloEgresado)
+                </th>
+                <th>
+                </th>
+                <th>Acciones</th>
+                <th>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cedula)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Apellido)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Telefono)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CodigoSenecyt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TituloEgresado)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary text-white">Editar</a>
+                    </td>
+            <td>
+            <form asp-action="Details" asp-route-id="@item.Id">
+            <input type="submit" value="Detalles" class="btn btn-info text-white"/>
+            </form>
+            </td>
+                 <td>      
+            <form asp-action="Delete" asp-route-id="@item.Id">
+            <input type="submit" value="Eliminar" class="btn btn-danger text-white"/>
+            </form>
+                </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
